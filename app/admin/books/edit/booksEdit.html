@@ -1,0 +1,37 @@
+{extends file=$conf->root_path|cat:"/templates/main.html"}
+
+{block name=kontent}
+<div id = "kontener" class = "col-lg-">
+		<br><div id = "ksiazkaAdmin" class = "col-lg-5 col-sm-offset-1">
+			<form action="{$conf->action_root}booksSave" method="post" class="">
+				<fieldset>
+					<div class="col-sm-7">
+						<label for="imie">Tytuł: </label>
+						<input id="imie" type="text" name="tytul" class = "form-control" placeholder = "tytul" value = "{$form->tytul}"><br>
+					</div>
+					<div class="col-sm-7">
+						<label for="nazwisko">Autor: </label>
+						<input id="nazwisko" type="text" name="autor" class = "form-control" placeholder = "autor" value = "{$form->autor}"><br>
+					</div>
+					<div class="col-sm-7">
+						<label for="login">Gatunek: </label>
+						<input id="login" type="text" name="gatunek" class = "form-control" placeholder = "gatunek" value = "{$form->gatunek}"><br>
+					</div>
+					<div class="col-sm-7">
+						<label for="mail">Ile sztuk: </label>
+						<input id="ile" type="text" name="ile" class = "form-control" placeholder = "ile sztuk" value = "{$form->ile}"><br>
+					</div>
+					<div class="col-sm-7">
+						<input type="submit" value="Zapisz" class="btn btn-success">
+						<a href="{$conf->action_root}booksShow" class="btn btn-warning">Powrót</a>
+					</div>
+					
+				</fieldset>
+				<input type="hidden" name="id" value="{$form->id}">
+			</form>
+			
+			<br>	
+		</div>	
+	</div>
+
+{/block}

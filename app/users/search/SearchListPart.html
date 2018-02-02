@@ -1,0 +1,28 @@
+<table id="tab_people" class="table">
+<thead>
+	<tr>
+		<th>Tytuł</th>
+		<th>Autor</th>
+		<th>Gatunek</th>
+		<th>Ile na stanie</th>
+		<th>Wypożycz</th>
+	</tr>
+</thead>
+<tbody>
+{foreach $books as $b}
+{strip}
+	<tr>
+		<td>{$b["tytul"]}</td>
+		<td>{$b["autor"]}</td>
+		<td>{$b["gatunek"]}</td>
+		<td>{$b["ile"]}</td>
+		<td>
+			{if $b['ile'] != 0}
+				<a class="btn btn-info" href="{$conf->action_url}wypozycz&id={$b['id']}">Wypożycz</a>
+			{/if}
+		</td>
+	</tr>
+{/strip}
+{/foreach}
+</tbody>
+</table>

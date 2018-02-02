@@ -1,0 +1,39 @@
+{extends file=$conf->root_path|cat:"/templates/main.html"}
+
+{block name = kontent}
+	<div id = "content" class = "col-lg-9">
+		<div style = "text-align: center;">
+			<a class = "btn btn-success" href = "{$conf->action_url}booksEdit">Dodaj nową książkę</a><br>
+		</div>	
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Tytuł</th>
+					<th>Autor</th>
+					<th>Gatunek</th>
+					<th>Ile sztuk</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			{foreach $books as $b}
+			{strip}
+				<tr>
+					<td>{$b["tytul"]}</td>
+					<td>{$b["autor"]}</td>
+					<td>{$b["gatunek"]}</td>
+					<td>{$b["ile"]}</td>
+					<td>
+						<a class="btn btn-info" href="{$conf->action_url}booksEdit&id={$b['id']}">Edytuj</a>
+						&nbsp;
+						<a class="btn btn-danger"
+						onclick="confirmLink('{$conf->action_url}booksDelete&id={$b['id']}','Czy aby na pewno?')">Usuń</a>
+					</td>
+				</tr>
+			{/strip}
+			{/foreach}
+			</tbody>
+		</table>
+	</div>
+		
+{/block}	

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>Biblioteka Basta</title>
+	
+	<link rel="stylesheet" href="{$conf->app_url}/lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<link rel="stylesheet" href="{$conf->app_url}/css/styl.css">
+	<link rel="stylesheet" href="{$conf->app_url}/css/style.css">
+	<script type="text/javascript" src="{$conf->app_url}/js/functions.js"></script>
+	
+</head>
+<body>
+	<div id = "naglowek" class = "col-lg-12">
+		<img src = "{$conf->app_url}\css\gf\book.png">
+	</div>
+	<div id = "kontener" class = "col-lg-13">
+		{if count($conf->roles)>0}
+			<div id = "menu" class = "col-lg-3 col-sm-6">
+				<ul>
+					{if ($conf->roles == ['user'])}
+					<li><a href="{$conf->action_root}positionsShow">Moje pozycje</a></li>
+					<li><a href="{$conf->action_root}searchShow">Szukaj</a></li>
+					<li><a href="{$conf->action_root}regulaminShow">Regulamin</a></li>
+					{else}
+						<li><a href="{$conf->action_root}wypozyczeniaShow">Wypożyczenia</a></li>
+						<li><a href="{$conf->action_root}booksShow">Książki</a></li>
+						<li><a href="{$conf->action_root}usersShow">Użytkownicy</a></li>
+					{/if}
+					<li><a href="{$conf->action_root}logout">Wyloguj</a></li>
+				</ul>
+			</div>
+		{/if}
+		{block name=kontent}
+		
+		
+		{/block}
+		{block name = tabela} {/block}
+	</div>
+		
+	{block name=messages}
+
+		{if $msgs->isMessage()}
+		<div style = "" class="messages col-lg-offset-4 col-lg-4">
+		<ul>
+			{foreach $msgs->getMessages() as $msg}
+			{strip}
+			<li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
+			{/strip}
+			{/foreach}
+		</ul>
+	</div>
+	{/if}
+
+	{/block}
+	
+	
+
+
+		
+	<div id = "stopka" class = "col-lg-12">
+		<p>&copy; Kamil Basta</p>
+	</div>
+</body>
+</html>

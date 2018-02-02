@@ -1,0 +1,18 @@
+{extends file=$conf->root_path|cat:"/templates/main.html"}
+
+{block name = kontent}
+	<div class="col-lg-9">
+		<div class = "form-inline" style = "text-align: center; ;">
+		<h3>Szukajka</h3>
+		<form id="searchForm" class="pure-form pure-form-stacked" onsubmit="ajaxPostForm('searchForm','{$conf->action_root}searchListPart','tab_people'); return false;">
+				<input type="text" placeholder="tytuł" name="sf_tytul" value="{$searchForm->tytul}" class = "form-control"> 
+				<input type="text" placeholder="autor" name="sf_autor" value="{$searchForm->autor}" class = "form-control"> 
+				<input type="text" placeholder="gatunek" name="sf_gatunek" value="{$searchForm->gatunek}" class = "form-control"> <br> <br>
+				<button type="submit" class="btn btn-default">Szukaj</button>
+		</form>
+		</div><br>
+{/block}
+{block name = tabela}
+		{include file=$conf->root_path|cat:"/app/users/search/SearchListPart.html"}
+	</div>
+{/block}	

@@ -1,0 +1,40 @@
+<table id="tab_people" class="table">
+<thead>
+	<tr>
+		<th>NW</th>
+		<th>Login</th>
+		<th>Kara [ZŁ]</th>
+		<th>Tytuł</th>
+		<th>Autor</th>
+		<th>Data wypozyczenia</th>
+		<th>Data oddania</th>
+		<th>Status</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{foreach $wyp as $w}
+{strip}
+	<tr>
+		<td>{$w["idWyp"]}</td>
+		<td>{$w["login"]}</td>
+		<td>{$w["kara"]}</td>
+		<td>{$w["tytul"]}</td>
+		<td>{$w["autor"]}</td>
+		<td>{$w["data_wyp"]}</td>
+		<td>{$w["data_od"]}</td>
+		<td>{$w["status"]}</td>
+		<td>
+			{if $w["status"] == "oczekiwany"}
+			<a class="btn btn-info" href="{$conf->action_url}wypozyczyl&id={$w['idWyp']}">Wypożyczył</a>
+			&nbsp;
+			{elseif $w["status"] == "wypozyczony"}
+			<a class="btn btn-success" href="{$conf->action_url}oddal&id={$w['idWyp']}&idb={$w['bookid']}")>Oddał</a>
+		
+			{/if}
+		</td>
+	</tr>
+{/strip}
+{/foreach}
+</tbody>
+</table>

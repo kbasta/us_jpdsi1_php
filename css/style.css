@@ -1,0 +1,72 @@
+body{
+	/*background-color: #f00;*/
+	margin: 0 5%;
+	font-family: verdana;	
+	background-color: #949494;
+}
+
+#naglowek{
+	background: radial-gradient(#e4e4e4, #949494 70%);
+	text-align: center;
+}
+
+#kontener{
+
+}
+
+#menu{
+	background: #949494;
+}
+
+#menu ul{
+	padding: 0;
+	text-align: center;
+}
+
+#menu ul li{
+	list-style-type: none;
+	background: #949494;
+	padding: 5%;
+}
+
+#menu ul li:hover{
+	background: radial-gradient(#e4e4e4, #949494 60%);
+}
+
+#menu ul li a{
+	color: #000;
+	text-decoration: none;
+}
+
+#content{
+	padding: 1%;
+}
+
+#logowanie{
+	
+}
+
+#stopka {
+	float: right;
+	background: radial-gradient(#a0a0a0, #949494 60%);
+	width: 100%;
+	display: block;	
+	text-align: center;
+}
+
+ul{
+	list-style: none;
+	
+}
+
+.messages { }
+.messages ul { list-style-type: none; padding: 0; }
+.msg{
+	border-radius: 0.5em;
+	padding: 1em;
+	margin-bottom: 0.5em;
+	box-shadow: 0.2em 0.2em 0.4em #ccc;
+}
+.error{	background-color: #f88; }
+.warning{ background-color: #fd2; }
+.info{ background-color: #afa; }

@@ -1,0 +1,38 @@
+{extends file=$conf->root_path|cat:"/templates/main.html"}
+
+{block name = kontent}
+	
+		<div id = "content" class = "col-lg-9">
+			<h3>Witaj {$infoUser["imie"]} {$infoUser["nazwisko"]}!</h3>
+			<p>Twoja kara na chwilę obecną wynosi: {$infoUser["kara"]} zł.</p>
+			<table class="table">
+			<thead>
+				<tr>
+					<th>NW</th>
+					<th>user</th>
+					<th>book</th>
+					<th>Data Oddania</th>
+					<th>Status</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			{foreach $books as $b}
+			{strip}
+				<tr>
+					<td>{$b["idWyp"]}</td>
+					<td>{$b["tytul"]}</td>
+					<td>{$b["autor"]}</td>
+					<td>{$b["data_od"]}</td>
+					<td>{$b["status"]}</td>
+					<td>
+						{if ($b["status"] == "wypozyczony")}<a class="btn btn-info" href="{$conf->action_url}bookPrz&id={$b['idWyp']}">Przedłuż</a>{/if}
+					</td>
+				</tr>
+			{/strip}
+			{/foreach}
+			</tbody>
+		</table>
+		</div>
+	
+{/block}	

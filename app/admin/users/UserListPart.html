@@ -1,0 +1,29 @@
+<table class="table" id = "tab_people">
+	<thead>
+		<tr>
+			<th>Imie</th>
+			<th>Nazwisko</th>
+			<th>Login</th>
+			<th>Kara</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach $users as $u}
+	{strip}
+		<tr>
+			<td>{$u["imie"]}</td>
+			<td>{$u["nazwisko"]}</td>
+			<td>{$u["login"]}</td>
+			<td>{$u["kara"]}</td>
+			<td>
+				<a class="btn btn-info" href="{$conf->action_url}zeruj&id={$u['id']}">Zapłacił</a>
+				&nbsp;
+				<a class="btn btn-danger"
+				onclick="confirmLink('{$conf->action_url}usersDelete&id={$u['id']}','Czy aby na pewno?')">Usuń</a>
+			</td>
+		</tr>
+	{/strip}
+	{/foreach}
+	</tbody>
+</table>	
